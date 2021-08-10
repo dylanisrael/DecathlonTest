@@ -9,6 +9,6 @@ drivers/
 
 # marco framework
 local_driver/
-
+allure-results/
 .idea/
 *.iml
