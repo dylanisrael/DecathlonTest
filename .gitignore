@@ -1,0 +1,14 @@
+.DS_Store
+.idea/
+target/
+*.sln.iml
+*.exe
+drivers/
+*.class
+*.iml
+
+# marco framework
+local_driver/
+
+.idea/
+*.iml
