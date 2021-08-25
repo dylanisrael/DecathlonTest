@@ -5,7 +5,7 @@ target/
 *.exe
 *.class
 *.iml
-
+git
 # marco framework
 local_driver/
 allure-results/
