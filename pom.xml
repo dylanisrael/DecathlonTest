@@ -11,10 +11,10 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <aspectjVersion>1.9.2</aspectjVersion>
+        <aspectjVersion>1.9.6</aspectjVersion>
         <aspectj.version>1.8.10</aspectj.version>
         <allure.results.directory>${basedir}/allure-results</allure.results.directory>
-        <allure.report.directory>target/reports</allure.report.directory>
+        <allure.report.directory>${basedir}/report</allure.report.directory>
     </properties>
 
 
@@ -75,16 +75,16 @@
             <version>6.10.4</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.14.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
-        </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>2.14.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.14.1</version>
+            </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
         <dependency>
@@ -138,10 +138,29 @@
             <artifactId>allure-cucumber6-jvm</artifactId>
             <version>2.14.0</version>
         </dependency>
+
+<!--        ajout de la dependance pour modifier les properties-->
         <dependency>
-            <groupId>com.github.automatedowl</groupId>
-            <artifactId>allure-environment-writer</artifactId>
-            <version>1.0.0</version>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.9</version>
+        </dependency>
+
+            <dependency>
+                <groupId>com.googlecode.json-simple</groupId>
+                <artifactId>json-simple</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>6.10.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.paulhammant</groupId>
+            <artifactId>ngwebdriver</artifactId>
+            <version>1.1.5</version>
         </dependency>
 
     </dependencies>
@@ -154,7 +173,7 @@
                 <version>2.9</version>
                 <configuration>
                     <reportVersion>2.7.0</reportVersion>
-                    <allureDownloadUrl>https://github.com/allure-framework/allure2/releases/download/%s/allure-%s.zip</allureDownloadUrl>
+                        <allureDownloadUrl>https://github.com/allure-framework/allure2/releases/download/%s/allure-%s.zip</allureDownloadUrl>
                 </configuration>
             </plugin>
 
@@ -200,7 +219,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <shutdown>kill</shutdown>
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjVersion}/aspectjweaver-${aspectjVersion}.jar"
                     </argLine>
 
                 </configuration>
@@ -208,7 +227,7 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.6</version>
+                        <version>${aspectjVersion}</version>
                     </dependency>
                 </dependencies>
             </plugin>

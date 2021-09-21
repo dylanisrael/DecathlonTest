@@ -2,7 +2,6 @@ package com.Decathlon.pageObjects;
 
 import com.Decathlon.config.Configuration;
 import com.Decathlon.config.Properties;
-import com.Decathlon.utils.ExcelManager;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
@@ -21,9 +20,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Function;
 
@@ -250,13 +246,7 @@ public class Page {
         }
         return logs;
     }
-
-    // write exection of bug results in excel file
-    public void writeResultInFile(String NUMBUG, String bug_statut) throws IOException {
-        ExcelManager excel = new ExcelManager();
-        excel.excelWriting(NUMBUG,bug_statut, LocalDate.now().toString(), LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
-
-    }
+    
 
     public void cookieManager( ){
         if(waitUntil(visibilityOf(popInCookieWrap))) clickOn(popInCookieButton);
