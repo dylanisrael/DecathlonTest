@@ -1,0 +1,12 @@
+#
+# WebDriver path
+#
+###
+firefox=local_driver/geckodriver.exe
+chrome=local_driver/chromedriver.exe
+
+###
+headless = false
+environment = production
+browser = chrome
+device = desktop

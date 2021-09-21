@@ -5,9 +5,9 @@ target/
 *.exe
 *.class
 *.iml
-git
-# marco framework
 local_driver/
 allure-results/
-.idea/
-*.iml
+logs/
+.allure/
+allure-report/
+config/config.properties
