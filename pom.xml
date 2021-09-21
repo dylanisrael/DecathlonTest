@@ -200,7 +200,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <shutdown>kill</shutdown>
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.2/aspectjweaver-1.9.2.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar"
                     </argLine>
 
                 </configuration>
