@@ -37,6 +37,10 @@ public class Page {
 
     @FindBy( id = "didomi-notice-agree-button")
     private WebElement popInCookieButton;
+    
+    String jsClickCode = "arguments[0].scrollIntoView(true); arguments[0].click();";
+    String jsScrollCode ="arguments[0].scrollIntoView(true);";
+    
     /***
      *
      */
@@ -136,23 +140,34 @@ public class Page {
 
 //    Click on an element
     protected void clickOn(WebElement element){
-
-        if( !shortUntil(visibilityOf(element)) ){
-            // Logger
-            throw new RuntimeException("Element not visible after click");
+    
+        try {
+            if (!shortUntil(visibilityOf(element))) {
+                // Logger
+                throw new RuntimeException("Element not visible after click");
+            }
+        
+            if (!shortUntil(elementToBeClickable(element))) {
+                // Logger
+                throw new RuntimeException("Element not clickable");
+            }
+            scrollTo(element);
+            element.click();
+        }catch(Exception e){
+            try {
+                ((JavascriptExecutor) driver).executeScript(jsClickCode, element);
+            }catch(Exception ex){
+                action.moveToElement(element).click().perform();
+            }
+            
         }
-
-        if( !shortUntil(elementToBeClickable(element))){
-            // Logger
-            throw new RuntimeException("Element not clickable");
-        }
-        element.click();
     }
 
     //    vertical scrolling on the page
     protected void scroll(int height){
         js.executeScript("window.scrollBy(0,"+height+")", "");
     }
+    protected void scrollTo(WebElement element){js.executeScript(jsScrollCode, element);}
 
     // check if 2 elements are overlapping
     protected boolean areElementsOverlapping(WebElement element1, WebElement element2) {
