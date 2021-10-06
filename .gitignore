@@ -11,3 +11,4 @@ logs/
 .allure/
 allure-report/
 config/config.properties
+*.log

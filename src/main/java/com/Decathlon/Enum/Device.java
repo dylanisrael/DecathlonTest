@@ -6,7 +6,7 @@ public enum Device {
     /***
      *
      */
-    DESKTOP(-1,-1, true),
+    DESKTOP(1920,1080, true),
     IOS(200,600, false);
     /****
      *

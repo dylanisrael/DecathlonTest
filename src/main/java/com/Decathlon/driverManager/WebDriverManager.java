@@ -2,10 +2,8 @@ package com.Decathlon.driverManager;
 
 import com.Decathlon.config.Properties;
 import com.Decathlon.drivers.DriverFactory;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 
 public class WebDriverManager {
@@ -34,13 +32,13 @@ public class WebDriverManager {
             window.maximize();
         }
     }
-    public  String getInfo() {
-        Capabilities cap = ((RemoteWebDriver) getDriver()).getCapabilities();
-        String browserName = cap.getBrowserName();
-        String platform = cap.getPlatform().toString();
-        String version = cap.getVersion();
-        return String.format("browser: %s v: %s platform: %s", browserName, version, platform);
-    }
+//    public  String getInfo() {
+//        Capabilities cap = ((RemoteWebDriver) getDriver()).getCapabilities();
+//        String browserName = cap.getBrowserName();
+//        String platform = cap.getPlatform().toString();
+//        String version = cap.getVersion();
+//        return String.format("browser: %s v: %s platform: %s", browserName, version, platform);
+//    }
     /***
      *
      * @static
